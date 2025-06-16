@@ -1,103 +1,167 @@
+'use client';
+import Header from "@/components/header";
 import Image from "next/image";
+import { Box, Heading, Text, Button, Flex, Link } from "@chakra-ui/react"
+import Footer from "@/components/footer";
+import BringingYou from "@/components/bringing_you";
+import Categories from "@/components/categories";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+ return (
+    <Box>
+      <Header />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      {/** HERO **/}
+      <Flex
+        bg="gray.900"
+        color="white"
+        direction={{ base: "column", md: "row" }}
+        align="center"
+        px={6}
+        py={20}
+        gap={12}
+      >
+        <Box flex="1" textAlign={{ base: "center", md: "left" }} gap={6}>
+          <Text
+            textTransform="uppercase"
+            letterSpacing="widest"
+            color="orange.400"
+            mb={4}
           >
+            New Product
+          </Text>
+          <Heading as="h1" size="2xl" mb={6}>
+            XX99 Mark II Headphones
+          </Heading>
+          <Text fontSize="lg" mb={8}>
+            Experience natural, lifelike audio and exceptional build quality made
+            for the passionate music enthusiast.
+          </Text>
+          <Link href="/products/headphones/xx99-mark-two-headphones">
+            <Button bg="orange.400" color="white" _hover={{ bg: "orange.500" }}>
+              See Product
+            </Button>
+          </Link>
+        </Box>
+
+        <Box flex="1" position="relative" w="full" h={{ base: "250px", md: "500px" }}>
+          <Image
+
+            src="/assets/home/desktop/image-hero.jpg"
+            alt="XX99 Mark II Headphones"
+            layout="fill"
+            objectFit="cover"
+            className="rounded"
+          />
+        </Box>
+      </Flex>
+
+      {/** CATEGORY LINKS **/}
+        <Categories/>
+      {/** FEATURED BLOCKS **/}
+      <Box>
+        {/** ZX9 SPEAKER **/}
+        <Flex
+          bg="orange.400"
+          color="white"
+          direction={{ base: "column", md: "row" }}
+          align="center"
+          px={6}
+          py={20}
+          gap={12}
+          overflow="hidden"
+        >
+          <Box flex="1" position="relative" w="full" h={{ base: "200px", md: "400px" }}>
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/assets/home/desktop/image-speaker-zx9.png"
+              alt="ZX9 Speaker"
+              layout="fill"
+              objectFit="contain"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          </Box>
+          <Box flex="1" textAlign={{ base: "center", md: "left" }}>
+            <Heading as="h2" size="2xl" mb={6}>
+              ZX9 Speaker
+            </Heading>
+            <Text fontSize="lg" mb={8} fontWeight="medium">
+              Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
+            </Text>
+            <Link href="/products/speakers/zx9-speaker" >
+              <Button
+                variant="solid"
+                bg="black"
+                color="white"
+                _hover={{ bg: "gray.800" }}
+              >
+                See Product
+              </Button>
+            </Link>
+          </Box>
+        </Flex>
+
+        {/** ZX7 SPEAKER **/}
+        <Flex
+          bg="gray.100"
+          direction={{ base: "column", md: "row-reverse" }}
+          align="center"
+          px={6}
+          py={20}
+          gap={12}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <Box flex="1">
+            <Heading as="h2" size="2xl" mb={6}>
+              ZX7 Speaker
+            </Heading>
+            <Link href="/products/speakers/zx7-speaker">
+              <Button variant="outline" borderColor="black" color="black">
+                See Product
+              </Button>
+            </Link>
+          </Box>
+          <Box flex="1" position="relative" w="full" h={{ base: "200px", md: "400px" }}>
+            <Image
+              src="/assets/home/desktop/image-speaker-zx7.jpg"
+              alt="ZX7 Speaker"
+              layout="fill"
+              objectFit="cover"
+            />
+          </Box>
+        </Flex>
+
+        {/** YX1 EARPHONES **/}
+        <Flex
+          bg="gray.800"
+          color="white"
+          direction={{ base: "column", md: "row" }}
+          align="center"
+          px={6}
+          py={20}
+          gap={12}
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+          <Box flex="1" position="relative" w="full" h={{ base: "200px", md: "400px" }}>
+            <Image
+              src="/assets/home/desktop/image-earphones-yx1.jpg"
+              alt="YX1 Earphones"
+              layout="fill"
+              objectFit="cover"
+            />
+          </Box>
+          <Box flex="1" textAlign={{ base: "center", md: "left" }}>
+            <Heading as="h2" size="2xl" mb={6}>
+              YX1 Earphones
+            </Heading>
+            <Link href="/products/earphones/yx1-earphones" >
+              <Button variant="outline" borderColor="white" color="white">
+                See Product
+              </Button>
+            </Link>
+          </Box>
+        </Flex>
+      </Box>
+
+      {/** “BRINGING YOU…” **/}
+      <BringingYou/>
+          <Footer/>
+    </Box>
+  )
 }
