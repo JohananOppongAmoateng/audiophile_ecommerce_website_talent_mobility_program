@@ -21,7 +21,7 @@ import Header from "@/components/header";
 import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
 
-export default function ProductDetail({params}: {params: { name: string }}) {
+export default function ProductDetail({params}: {params: { name: string , slug: string}}) {
   const { name } = params;
   const array = data.filter((item: any) => item.slug === name);
   const product = array[0];
